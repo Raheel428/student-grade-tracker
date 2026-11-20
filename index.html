@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+   
+    <body>
+        
+        <h1> Student Grade Tracker</h1>
+        <p>Enter student assesments scores to calculate their average grade. </p>
+
+        <form id="gradeForm">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" required>
+            <br><br>
+            <label for="assessment1">Assessment 1:</label>
+            <input type="number" id="assessment1" min="0" max="100" required>
+            <br><br>
+            <label for="assessment2">Assessment 2:</label>
+            <input type="number" id="assessment2" min="0" max="100" required>
+            <br><br>
+            <label for="assessment3">Assessment 3:</label>
+            <input type="number" id="assessment3" min="0" max="100" required>
+            <br><br>
+            
+            <button type="submit">Calculate Average</button>
+            <button type="button" id="clearButton">Clear Form</button>
+
+        </form>
+
+        <div id="result"></div>
+
+    <!-- student Performance Dashboard -->
+         <section id="dashboard">
+    <h2>Student Performance Dashboard</h2>
+
+    <div class="dashboardGrid">
+
+        <div class="dashboardCard">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+        </div>
+
+        <div class="dashboardCard">
+            <h3>Class Average</h3>
+            <p id="classAverage">0.00%</p>
+        </div>
+
+        <div class="dashboardCard">
+            <h3>Students Passing</h3>
+            <p id="studentsPassing">0</p>
+        </div>
+
+        <div class="dashboardCard">
+            <h3>Students Failing</h3>
+            <p id="studentsFailing">0</p>
+        </div>
+
+    </div>
+
+    <!-- Student Performance Chart -->
+     <div id="performanceChart">
+        <h3>Student Performance Overview</h3>
+
+        <!-- Bar showing passing students -->
+     <div class="chartRow">
+        <span>Passing Students</span>
+        <div class="chartTrack">
+            <div id="passBar" class="chartBar passBar"></div>
+        </div>
+        <span id="passCount">0</span>
+     </div>
+
+     <!-- Bar showing failing students -->
+      <div class="chartRow">
+        <span>Failing Students</span>
+        <div class="chartTrack">
+            <div id="failBar" class="chartBar failBar"></div>
+            </div>
+            <span id="failCount">0</span>
+        </div>
+      </div>
+
+</section>
+
+        <!-- Table used to display all students results -->
+         <div id="studentResults">
+            <h2>Student Results</h2>
+
+            <!-- Search for a student by name -->
+            <label for="searchStudent">Search Student:</label>
+            <input
+            type="text"
+            id="searchStudent"
+            placeholder="Enter student name"
+        >
+
+<!-- Sort students by name or average score -->
+<label for="sortStudents">Sort Students:</label>
+
+<select id="sortStudents">
+    <option value="default">Original Order</option>
+    <option value="nameAZ">Name: A to Z</option>
+    <option value="nameZA">Name: Z to A</option>
+    <option value="highest">Highest Average First</option>
+    <option value="lowest">Lowest Average First</option>
+</select>
+
+<!-- Filter students by their pass or fail status -->
+<label for="filterStatus">Filter by Performance:</label>
+
+<select id="filterStatus">
+    <option value="all">All Students</option>
+    <option value="Pass">Passing Students Only</option>
+    <option value="Fail">Failing Students Only</option>
+</select>
+
+<!-- Download student results as a CSV file -->
+<button type="button" id="exportButton">
+    Export Results to CSV
+</button>
+
+
+            <!-- Table used to display all student results -->
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Assessment 1</th>
+                        <th>Assessment 2</th>
+                        <th>Assessment 3</th>
+                        <th>Average</th>
+                        <th>Grade</th>
+                        <th>Status</th>
+                        <th>Highest</th>
+                        <th>Lowest</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id= "studentTableBody">
+                    <!-- Student results will be dynamically added here -->
+                </tbody>
+            </table>
+         </div>
+        <script src="script.js"></script>
+    </body>
+
+</html>
